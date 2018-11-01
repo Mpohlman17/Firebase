@@ -1,7 +1,39 @@
 /* lines inside tables */
+.jumbotron-fluid{
+    background-image: url(http://www.wenban.id.au/wp-content/uploads/2015/02/cropped-old-traditional-cool-train-header1-1.jpg);
+    background-size: cover;
+    text-align: center;
+    background-repeat: no-repeat;
+    height:200px;
+    max-width: 100%;
+    color:rgb(11, 218, 187);
+    text-shadow:whitesmoke;
+}
+h2{
+    color:whitesmoke;
+    /* margin-left:10px;
+    margin-top:10px; */
+    width:100%;
+}
+#addTrain{
+    margin-left: 100px;
+    margin-bottom: -20px;
+}
+#trainTable{
+    color:whitesmoke;
+    font-size: 20px;
+    padding:10px;
+}
+.form-group{
+    color:whitesmoke;
+    padding:10px;
+    font-size: 16px;
+    text-shadow: black;
+    width:100%;
+}
 .table > thead > tr > th{
     border-right: 1px solid #ddd;
-    border-bottom:0;
+    border-bottom:1px;
 }
 
 .table > tbody > tr > td{
@@ -9,15 +41,75 @@
 }
 
 .table > thead > tr > th:last-of-type {
-    border-right: 0px;
+    border-right: 1px;
 }
 
 .table > tbody > tr > td:last-of-type {
-    border-right: 0px;
+    border-right: 1px;
 }
 
 .panel-body {
-    padding: 0;
+    padding: 1px;
 }
 
 .panel-body > .table{margin-bottom:0px;}
+
+body, html {
+    
+    width: 100%;
+   
+}
+  
+  * {
+    box-sizing: border-box;
+  }
+
+.bg-img {
+    background-image: url(https://www.ordenadorpolitico.com/wp-content/uploads/2017/08/09932b65c40595d3440acdc35c755605.jpg);
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top:-31px;
+  }
+  
+  /* Add styles to the form container */
+  .container {
+    
+    right: 0;
+    margin: 20px;
+    padding: 16px;
+    background-color: transparent;
+    text-shadow: black;
+
+  }
+  
+  /* Full-width input fields */
+    input[type=text], input[type=time] {
+    width: 40%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+    
+  }
+  
+  input[type=text]:focus, input[type=time]:focus {
+    background-color: #ddd;
+    outline: none;
+  } 
+  
+  /* Set a style for the submit button */
+  .btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 20%;
+    opacity: 0.9;
+  }
+  
+  .btn:hover {
+    opacity: 1;
+  }

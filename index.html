@@ -5,29 +5,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
         crossorigin="anonymous">
+
+    <!-- custom css -->
     <link rel="stylesheet" href="Assets/style.css" type="text/css">
-    <script src="https://www.gstatic.com/firebasejs/5.5.6/firebase.js"></script>
+    <!-- javaScript -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <!-- firebase -->
+    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+    <!-- moment.js -->
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+
     <title>Anytime is Train Time</title>
 </head>
 
 <body>
     <!-- header -->
     <div class="container">
-        <div class="jumbotron">
+        <div class="jumbotron jumbotron-fluid">
             <h1 class="text-center">Anytime is Train Time</h1>
             <h3 class="text-center">Choo Choo. Chee Chee.</h3>
         </div>
+        <div class="bg-img">
         <div class="row">
             <div class="col-lg-12">
                 <!-- Current Schedule-->
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title"><strong>Current Train Schedule</strong></h3>
+                        <h2 class="text-center" class="panel-title"><strong>Current Train Schedule Current Time: <span><i id="currentTime"></i></span></strong></h2>
                     </div>
                     <div class="panel-body">
-                        <table class="table table-hover" id='train-table'>
+                        <table class="table table-hover" id="trainTable">
                             <thead>
                                 <tr>
                                     <th>Train Name</th>
@@ -38,6 +48,13 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -45,47 +62,44 @@
                 <!-- Add Schedule  -->
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title"><strong>Add Train</strong></h3>
+                        <h2 id="addTrain" class="panel-title"><strong>Add Your Own Train</strong></h2>
                     </div>
                     <div class="panel-body">
 
                         <!-- Add Train Form % submit button -->
-                        <form>
-                            <div class="form-group">
-                                <label for="train-name-input">Train Name</label>
-                                <input class="form-control" id="train-name-input" type="text">
-                            </div>
-                            <div class="form-group">
-                                <label for="dest-input">Destination</label>
-                                <input class="form-control" id="dest-input" type="text">
-                            </div>
-                            <div class="form-group">
-                                <label for="firstTrain-input">First Train Time (HH:mm - military time)</label>
-                                <input class="form-control" id="firstTrain-input" type="text">
-                            </div>
-                            <div class="form-group">
-                                <label for="freq-input">Frequency (min)</label>
-                                <input class="form-control" id="freq-input" type="text">
-                            </div>
-                            <button class="btn btn-success" id="add-train-btn" type="submit">Submit</button>
-                        </form>
+                        
+                            <form action="/action_page.php" class="container">
+                                <div class="form-group">
+                                    <label for="trainName">Train Name</label>
+                                    <input class="form-control" id="trainName" type="text">
+                                </div>
+                                <div class="form-group">
+                                    <label for="trainDest">Destination</label>
+                                    <input class="form-control" id="trainDest" type="text">
+                                </div>
+                                <div class="form-group">
+                                    <label for="firstTrain">First Train Time (hh:mm - military time)</label>
+                                    <input class="form-control" id="firstTrain" type="text">
+                                </div>
+                                <div class="form-group">
+                                    <label for="trainFreq">Frequency (min)</label>
+                                    <input class="form-control" id="trainFreq" type="text">
+                                </div>
+                                <button class="btn btn-success" id="addTrain-btn" type="submit">Submit</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-
-
-
+    <!-- AJAX -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
         crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-        crossorigin="anonymous"></script>
-    <script src="Assets/trainSchedule.js"></script>
+    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script> -->
+    <script type="text/javaScript" src="Assets/trainSchedule.js"></script>
 </body>
 
 </html>
