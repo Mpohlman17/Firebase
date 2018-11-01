@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     var config = {
-        apiKey: "AIzaSyC0ZugQzkkM8qILqLlL6YmL4rmjOvGGHHM",
+        apiKey: "",
         authDomain: "polh-7de70.firebaseapp.com",
         databaseURL: "https://polh-7de70.firebaseio.com",
         projectId: "polh-7de70",
@@ -11,8 +11,6 @@ $(document).ready(function () {
     firebase.initializeApp(config);
 
     var database = firebase.database();
-
-    // have set preloaded variables that provide few current trains
 
     // Inital values
     var trainName = "";
@@ -92,18 +90,3 @@ $(document).ready(function () {
 
     });
 });
-// store inout into a variables
-// var trainName = childSnapshot.val().name;
-// var trainDest = childSnapshot.val().destination;
-// var firstTrain = childSnapshot.val().firstTrain;
-// var trainFreq = childSnapshot.val().frequency;
-// console logging
-// console.log(childSnapshot.val().name);
-// console.log(childSnapshot.val().destination);
-// console.log(childSnapshot.val().firstTrain);
-// console.log(childSnapshot.val().name);
-// time variable
-// var trainFreq;
-
-// start time on 0 so it can be established by user input
-// var firstTime = 0;
