@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     var config = {
-        apiKey: "",
+        apiKey: "AIzaSyC0ZugQzkkM8qILqLlL6YmL4rmjOvGGHHM",
         authDomain: "polh-7de70.firebaseapp.com",
         databaseURL: "https://polh-7de70.firebaseio.com",
         projectId: "polh-7de70",
@@ -82,7 +82,11 @@ $(document).ready(function () {
 
 
         // finally adding all the trains data into table
-        $("#trainTable > tbody").append("<tr><td>" + childSnapshot.val().trainName + "</td><td>" + childSnapshot.val().trainDest + "</td><td>" + childSnapshot.val().trainFreq + "</td><td>" + moment(nextTrain).format("hh:mm") + "</td><td>" + tMinutesTillTrain + "</td></tr>");
+        $("#trainTable > tbody").append("<tr scope=row><td scope=col>" + childSnapshot.val().trainName 
+        + "</td><td scope=col>" + childSnapshot.val().trainDest + "</td><td scope=col>" + 
+        childSnapshot.val().trainFreq + "</td><td scope=col>" + 
+        moment(nextTrain).format("hh:mm") + "</td><td scope=col>" + 
+        tMinutesTillTrain + "</td></tr>");
 
         // if errors are experienced
         // }, function (errorObject) {
